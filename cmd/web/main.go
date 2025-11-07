@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/daniel548604106/go-webserver-template/pkg/config"
-	"github.com/daniel548604106/go-webserver-template/pkg/handlers"
-	"github.com/daniel548604106/go-webserver-template/pkg/render"
+	"github.com/daniel548604106/go-bookings/pkg/config"
+	"github.com/daniel548604106/go-bookings/pkg/handlers"
+	"github.com/daniel548604106/go-bookings/pkg/render"
 )
 
 const portNumber = ":8080"

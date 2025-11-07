@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/daniel548604106/go-webserver-template/pkg/config"
-	"github.com/daniel548604106/go-webserver-template/pkg/models"
+	"github.com/daniel548604106/go-bookings/pkg/config"
+	"github.com/daniel548604106/go-bookings/pkg/models"
 )
 
 var functions = template.FuncMap{}

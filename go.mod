@@ -1,4 +1,4 @@
-module github.com/daniel548604106/go-webserver-template
+module github.com/daniel548604106/go-bookings
 
 go 1.15
 
