@@ -1,0 +1,66 @@
+{{template "base" .}}
+
+{{define "content"}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="mt-3">Make Reservation</h1>
+
+                {{ $res := index .Data "reservation" }}
+
+                <form method="post" action="/make-reservation" class="" novalidate>
+                    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+                    <div class="form-group mt-3">
+                        <label for="first_name">First Name:</label>
+                        {{with .Form.Errors.Get "first_name"}}
+                            <span class="text-danger" id="first_name_error" role="alert">{{.}}</span>
+                        {{end}}
+                        <input class="form-control {{with .Form.Errors.Get "first_name"}} is-invalid {{end}}" 
+                               id="first_name" autocomplete="off" type='text'
+                               name='first_name' value="{{$res.FirstName}}" 
+                               {{if .Form.Errors.Get "first_name"}}aria-describedby="first_name_error" aria-invalid="true"{{end}} required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">Last Name:</label>
+                        {{with .Form.Errors.Get "last_name"}}
+                            <span class="text-danger" id="last_name_error" role="alert">{{.}}</span>
+                        {{end}}
+                        <input class="form-control {{with .Form.Errors.Get "last_name"}} is-invalid {{end}}"
+                               id="last_name" autocomplete="off" type='text'
+                               name='last_name' value="{{$res.LastName}}" 
+                               {{if .Form.Errors.Get "last_name"}}aria-describedby="last_name_error" aria-invalid="true"{{end}} required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        {{with .Form.Errors.Get "email"}}
+                            <span class="text-danger" id="email_error" role="alert">{{.}}</span>
+                        {{end}}
+                        <input class="form-control {{with .Form.Errors.Get "email"}} is-invalid {{end}}" 
+                               id="email" autocomplete="off" type='email'
+                               name='email' value="{{$res.Email}}" 
+                               {{if .Form.Errors.Get "email"}}aria-describedby="email_error" aria-invalid="true"{{end}} required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        {{with .Form.Errors.Get "phone"}}
+                            <span class="text-danger" id="phone_error" role="alert">{{.}}</span>
+                        {{end}}
+                        <input class="form-control {{with .Form.Errors.Get "phone"}} is-invalid {{end}}" 
+                               id="phone" autocomplete="off" type='tel'
+                               name='phone' value="{{$res.Phone}}" 
+                               {{if .Form.Errors.Get "phone"}}aria-describedby="phone_error" aria-invalid="true"{{end}} required>
+                    </div>
+
+                    <hr>
+                    <input type="submit" class="btn btn-primary" value="Make Reservation">
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+{{end}}
